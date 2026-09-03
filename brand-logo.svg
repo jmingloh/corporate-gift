@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">JM Corporate Gift Sourcing icon logo</title>
+  <desc id="desc">A premium JM monogram inside a gift-inspired corporate mark.</desc>
+  <defs>
+    <linearGradient id="tile" x1="32" y1="26" x2="226" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0D1726"/>
+      <stop offset="0.52" stop-color="#11392F"/>
+      <stop offset="1" stop-color="#0E5B45"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="68" y1="58" x2="188" y2="202" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4D98F"/>
+      <stop offset="0.48" stop-color="#D3A451"/>
+      <stop offset="1" stop-color="#B57C2C"/>
+    </linearGradient>
+    <filter id="softShadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#06151D" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="256" height="256" rx="48" fill="url(#tile)"/>
+  <path d="M48 195c30-14 61-15 93-2 29 12 52 9 67-8v31H48v-21Z" fill="#FFFFFF" opacity="0.07"/>
+  <path d="M35 76c34-20 68-17 102 9 29 22 58 24 85 4" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round" opacity="0.07"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M61 91h134c9 0 16 7 16 16v88c0 9-7 16-16 16H61c-9 0-16-7-16-16v-88c0-9 7-16 16-16Z" fill="#FFFFFF"/>
+    <path d="M45 129h166" fill="none" stroke="url(#gold)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M128 91v120" fill="none" stroke="url(#gold)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M128 91c-16-29-45-41-62-25-9 8-7 21 4 27 13 8 35 3 58-2Z" fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M128 91c16-29 45-41 62-25 9 8 7 21-4 27-13 8-35 3-58-2Z" fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="128" y="180" text-anchor="middle" fill="#0D1726" font-family="Inter, Arial, Helvetica, sans-serif" font-size="78" font-weight="850" letter-spacing="0">JM</text>
+  <text x="184" y="55" fill="#F1D486" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="850" letter-spacing="0">TM</text>
+</svg>
