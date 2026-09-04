@@ -4,7 +4,7 @@ const SITE_CONFIG = Object.freeze({
   BRAND_NAME: "JM Corporate Gift Sourcing",
   PHONE_NUMBER: "60177740471",
   EMAIL: "jmcorporategift.my@gmail.com",
-  WEBSITE_URL: "http://corporate-gift.my/",
+  WEBSITE_URL: "https://corporate-gift.my/",
   CATALOGUE_URL: "gift-catalogue.pdf",
   SHIRT_CATALOGUE_URL: "shirt-catalogue.pdf",
   FORM_ENDPOINT: "https://script.google.com/macros/s/AKfycbyy_Kvw1jEJLANZfkNnZagJWp7OcYYhhNvHZMPicNo72Jb_yMjBXoDbXVdLeYZJRCKC/exec",
