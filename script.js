@@ -20,6 +20,7 @@ const DEFAULT_WHATSAPP_MESSAGE =
 const MOONCAKE_PROMO = Object.freeze({
   PHONE_NUMBER: "60127891844",
   DISPLAY_PHONE: "012-789 1844",
+  LANDING_PAGE_URL: "https://corporate-gift.my/mooncake.html",
   SESSION_KEY: "miniMooncakePromoDismissed",
   MESSAGE: "Hi, I am interested in the Mini Mooncake Gift Set special price RM28 per gift. Is it still available? Only 50 sets left."
 });
@@ -49,6 +50,10 @@ function buildWhatsAppUrl(message = DEFAULT_WHATSAPP_MESSAGE) {
 
 function buildMooncakeWhatsAppUrl() {
   return `https://wa.me/${MOONCAKE_PROMO.PHONE_NUMBER}?text=${encodeURIComponent(MOONCAKE_PROMO.MESSAGE)}`;
+}
+
+function buildMooncakeCampaignUrl() {
+  return MOONCAKE_PROMO.LANDING_PAGE_URL;
 }
 
 function clean(value) {
@@ -134,9 +139,7 @@ function applyConfigToPage() {
   });
 
   document.querySelectorAll(SELECTORS.mooncakeWhatsappLink).forEach((link) => {
-    link.href = buildMooncakeWhatsAppUrl();
-    link.target = "_blank";
-    link.rel = "noopener";
+    link.href = buildMooncakeCampaignUrl();
   });
 
   document.querySelectorAll(SELECTORS.downloadLink).forEach((link) => {
@@ -186,6 +189,7 @@ function initMooncakePopup() {
     link.addEventListener("click", () => {
       trackEvent("mooncake_popup_whatsapp", {
         phone: MOONCAKE_PROMO.DISPLAY_PHONE,
+        destination: MOONCAKE_PROMO.LANDING_PAGE_URL,
         price: "RM28"
       });
       sessionStorage.setItem(MOONCAKE_PROMO.SESSION_KEY, "true");
