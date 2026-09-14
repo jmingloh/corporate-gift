@@ -15,4 +15,14 @@
       <image:title>JM Corporate Gift Sourcing logo</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://corporate-gift.my/mooncake.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://corporate-gift.my/Poster.jpeg</image:loc>
+      <image:title>Mini Mooncake Gift Sets RM28 promotion poster</image:title>
+    </image:image>
+  </url>
 </urlset>
