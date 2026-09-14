@@ -1036,6 +1036,127 @@ textarea::placeholder {
   height: 25px;
 }
 
+.promo-popup[hidden] {
+  display: none;
+}
+
+.promo-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.promo-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 23, 38, 0.72);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.promo-popup__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, 520px);
+  max-height: calc(100vh - 32px);
+  overflow: hidden auto;
+  border: 1px solid rgba(238, 188, 87, 0.44);
+  border-radius: var(--radius);
+  background: #410716;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.promo-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  color: var(--color-white);
+  background: rgba(13, 23, 38, 0.76);
+  cursor: pointer;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.promo-popup__poster-link {
+  display: block;
+  background: #410716;
+}
+
+.promo-popup__poster-link img {
+  width: 100%;
+  max-height: calc(100vh - 162px);
+  object-fit: contain;
+}
+
+.promo-popup__bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  color: var(--color-white);
+  background:
+    linear-gradient(135deg, rgba(238, 188, 87, 0.18), rgba(255, 255, 255, 0.04)),
+    #300511;
+}
+
+.promo-popup__bar strong,
+.promo-popup__bar span,
+.promo-popup__eyebrow {
+  display: block;
+}
+
+.promo-popup__eyebrow {
+  margin-bottom: 2px;
+  color: #f8da94;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.promo-popup__bar strong {
+  font-size: 1.05rem;
+  line-height: 1.15;
+}
+
+.promo-popup__bar span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.promo-popup__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 15px;
+  border-radius: var(--radius);
+  color: var(--color-white);
+  background: #149d58;
+  font-size: 0.9rem;
+  font-weight: 850;
+  line-height: 1.1;
+  white-space: nowrap;
+  box-shadow: 0 12px 24px rgba(20, 157, 88, 0.28);
+}
+
+body.promo-popup-open {
+  overflow: hidden;
+}
+
 .reveal {
   opacity: 1;
   transform: none;
@@ -1273,6 +1394,26 @@ textarea::placeholder {
 
   .floating-whatsapp {
     display: none;
+  }
+
+  .promo-popup {
+    padding: 10px;
+  }
+
+  .promo-popup__dialog {
+    width: min(96vw, 430px);
+  }
+
+  .promo-popup__poster-link img {
+    max-height: calc(100vh - 180px);
+  }
+
+  .promo-popup__bar {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-popup__button {
+    width: 100%;
   }
 
   .footer-links {

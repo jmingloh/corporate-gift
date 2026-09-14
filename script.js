@@ -17,10 +17,20 @@ const SITE_CONFIG = Object.freeze({
 const DEFAULT_WHATSAPP_MESSAGE =
   "Hi I am looking for corporate gifts. Please send me your free catalogue.";
 
+const MOONCAKE_PROMO = Object.freeze({
+  PHONE_NUMBER: "60127891844",
+  DISPLAY_PHONE: "012-789 1844",
+  SESSION_KEY: "miniMooncakePromoDismissed",
+  MESSAGE: "Hi, I am interested in the Mini Mooncake Gift Set special price RM28 per gift. Is it still available? Only 50 sets left."
+});
+
 const SELECTORS = {
   menuToggle: "[data-menu-toggle]",
   siteNav: "[data-site-nav]",
   whatsappLink: "[data-whatsapp-link]",
+  mooncakePopup: "[data-mooncake-popup]",
+  mooncakePopupClose: "[data-mooncake-popup-close]",
+  mooncakeWhatsappLink: "[data-mooncake-whatsapp-link]",
   downloadLink: "[data-download-link]",
   shirtDownloadLink: "[data-shirt-download-link]",
   configText: "[data-config]",
@@ -35,6 +45,10 @@ const SELECTORS = {
 
 function buildWhatsAppUrl(message = DEFAULT_WHATSAPP_MESSAGE) {
   return `https://wa.me/${SITE_CONFIG.PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+function buildMooncakeWhatsAppUrl() {
+  return `https://wa.me/${MOONCAKE_PROMO.PHONE_NUMBER}?text=${encodeURIComponent(MOONCAKE_PROMO.MESSAGE)}`;
 }
 
 function clean(value) {
@@ -119,6 +133,12 @@ function applyConfigToPage() {
     link.rel = "noopener";
   });
 
+  document.querySelectorAll(SELECTORS.mooncakeWhatsappLink).forEach((link) => {
+    link.href = buildMooncakeWhatsAppUrl();
+    link.target = "_blank";
+    link.rel = "noopener";
+  });
+
   document.querySelectorAll(SELECTORS.downloadLink).forEach((link) => {
     link.href = SITE_CONFIG.CATALOGUE_URL;
     link.target = "_blank";
@@ -143,6 +163,46 @@ function applyConfigToPage() {
       link.rel = "noopener";
     }
   });
+}
+
+function initMooncakePopup() {
+  const popup = document.querySelector(SELECTORS.mooncakePopup);
+  if (!popup) return;
+
+  const closeButtons = popup.querySelectorAll(SELECTORS.mooncakePopupClose);
+  const campaignLinks = popup.querySelectorAll(SELECTORS.mooncakeWhatsappLink);
+
+  const closePopup = () => {
+    popup.hidden = true;
+    document.body.classList.remove("promo-popup-open");
+    sessionStorage.setItem(MOONCAKE_PROMO.SESSION_KEY, "true");
+  };
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closePopup);
+  });
+
+  campaignLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      trackEvent("mooncake_popup_whatsapp", {
+        phone: MOONCAKE_PROMO.DISPLAY_PHONE,
+        price: "RM28"
+      });
+      sessionStorage.setItem(MOONCAKE_PROMO.SESSION_KEY, "true");
+    });
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (!popup.hidden && event.key === "Escape") closePopup();
+  });
+
+  if (sessionStorage.getItem(MOONCAKE_PROMO.SESSION_KEY) === "true") return;
+
+  window.setTimeout(() => {
+    popup.hidden = false;
+    document.body.classList.add("promo-popup-open");
+    trackEvent("mooncake_popup_view", { price: "RM28" });
+  }, 900);
 }
 
 function initMenu() {
@@ -333,4 +393,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initEventTracking();
   initRevealAnimations();
   initLeadForm();
+  initMooncakePopup();
 });
