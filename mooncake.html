@@ -127,14 +127,19 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      min-height: 54px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 231, 165, 0.4);
+      border-radius: 8px;
+      background: rgba(255, 248, 231, 0.96);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
       text-decoration: none;
       min-width: 0;
     }
 
     .brand img {
-      width: 178px;
-      max-width: 52vw;
-      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
+      width: 220px;
+      max-width: 56vw;
     }
 
     .header-actions {
@@ -468,6 +473,16 @@
         flex-direction: column;
       }
 
+      .brand {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .brand img {
+        width: min(240px, 72vw);
+        max-width: 100%;
+      }
+
       .header-actions,
       .cta-row {
         width: 100%;
@@ -619,19 +634,19 @@
           <p class="section-intro">Actual supplied product references are shown below so your team can review the gift set style before ordering.</p>
           <div class="gallery">
             <figure class="product">
-              <img src="Mooncake/Mini%20Mooncake%20Gift%20%28Front%20View%29.jpeg" alt="Mini mooncake gift set front view">
+              <img src="Mooncake/product-front.jpeg" alt="Mini mooncake gift set front view">
               <span>Gift Set Front View</span>
             </figure>
             <figure class="product">
-              <img src="Mooncake/Mini%20Mooncake%20Gift%20%2845%20Degree%20Front%20View%29.jpeg" alt="Mini mooncake gift set angle view">
+              <img src="Mooncake/product-angle.jpeg" alt="Mini mooncake gift set angle view">
               <span>Gift Set Angle View</span>
             </figure>
             <figure class="product">
-              <img src="Mooncake/Mini%20Mooncake%20Choice%20%28Yam%20%26%20Lotus%29.jpeg" alt="Mini mooncake yam and lotus choices">
+              <img src="Mooncake/product-choice.jpeg" alt="Mini mooncake yam and lotus choices">
               <span>Yam and Lotus Choices</span>
             </figure>
             <figure class="product">
-              <img src="Mooncake/Mini%20Mooncake%20%28Packing%29.jpeg" alt="Mini mooncake packing reference">
+              <img src="Mooncake/product-packing.jpeg" alt="Mini mooncake packing reference">
               <span>Packing Reference</span>
             </figure>
           </div>
